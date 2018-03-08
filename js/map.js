@@ -45,3 +45,7 @@ mapTypeId: 'mystyle'
 });
 
 map.mapTypes.set('mystyle', new google.maps.StyledMapType(myStyle, { name: 'My Style' }));
+
+function hideSplash() {
+  document.getElementById('splash').classList.toggle('hidden');
+}

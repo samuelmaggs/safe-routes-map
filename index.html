@@ -8,7 +8,26 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="sidebar"></div>
+    <div id="splash">
+        <div class="info panel">
+            <div>
+            <img src="">
+            <h1>Welcome to Bath Safe Routes Map</h1>
+            <p><p>
+            <div class="btn" onclick="hideSplash()">Launch Map!</div>
+            </div>
+        </div>
+        <div class="green panel">
+            
+        </div>
+    </div>
+    <div id="sidebar">
+        <ul>
+            <li>Routes</li>
+            <li>SOS</li>
+            <li onclick="hideSplash()">Information</li>
+        </ul>
+    </div>
     <div id="map"></div>
 </body>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDj5KjOWfCtD4k5rHd-CqnI4SROPoxD4MY&callback=initMap"></script>
