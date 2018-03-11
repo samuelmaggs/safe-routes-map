@@ -1,52 +1,92 @@
-#splash {
-    background: #fff;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    visibility: visible;
-  }
-  
-  #splash .panel {
-    width: 50%;
-    height: 100%;
-  }
-  
-  #splash .green {
-    background: #59CD90;
-  }
-  
-  #splash .info div {
-    margin: auto;
-    max-width: 700px;
-  }
-  
-  #splash .btn {
-    font-size: 35px;
-    font-weight: bold;
-    padding: 10px 20px;
-    background: #3FA7D6;
-    color: #fff;
-    display: inline-block;
-  }
-  
-  #sidebar {
-    width: 150px;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #2f2f2f;
-    z-index: 1;
-  }
-  
-  #map {
-      height: 100vh;
-  }
+h1, h2, h3, .btn{
+  font-family: 'Nunito Sans', sans-serif;
+}
 
-  .hidden {
-    visibility: hidden!important; 
-  }
+p, li, a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+#splash {
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  visibility: visible;
+}
+
+#splash .panel {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#splash .panel img{
+  max-width: 190px;
+  margin-bottom: 30px;
+  margin-left: -33px;
+}
+
+#splash .green {
+  background: #59CD90;
+}
+
+#splash .info > div{
+  margin: auto;
+  max-width: 700px;
+}
+
+#splash .btn {
+  max-width: 207px;
+  font-size: 35px;
+  font-weight: bold;
+  padding: 10px 20px;
+  background: #3FA7D6;
+  color: #fff;
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+#sidebar {
+  width: 150px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #2f2f2f;
+  z-index: 1;
+  color: #fff;
+}
+
+#sidebar ul li {
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+#sidebar ul li img {
+  width: 80px;
+  margin: auto;
+  display: block;
+}
+
+#map {
+    height: 100vh;
+}
+
+.hidden {
+  visibility: hidden!important; 
+}

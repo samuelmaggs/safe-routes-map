@@ -6,15 +6,17 @@
     <title>Safe Routes Home Map</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Nunito+Sans:400,700" rel="stylesheet">
 </head>
 <body>
     <div id="splash">
         <div class="info panel">
             <div>
-            <img src="">
-            <h1>Welcome to Bath Safe Routes Map</h1>
-            <p><p>
-            <div class="btn" onclick="hideSplash()">Launch Map!</div>
+              <img src="https://itsthe.space/Projects/safe-routes-map/img/gotyaback.jpg">
+              <h1>Welcome to Bath Safe Routes Map</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit cras molestie montes varius, risus per ultricies cubilia urna aliquet tristique orci ornare sapien fames, ut mus vulputate cursus vestibulum pellentesque justo semper nulla imperdiet.</p>
+        <p>At nunc sodales cursus sem habitant est diam aenean, ridiculus ultrices orci duis natoque fringilla mus, pretium cras purus magna parturient pellentesque eget. Proin laoreet malesuada eleifend ut dapibus in cum lacinia fusce, nulla scelerisque ultrices rutrum taciti sagittis mattis nibh, aenean montes nullam hendrerit praesent per primis penatibus.</p>
+              <div class="btn" onclick="toggleSplash()">Launch Map!</div>
             </div>
         </div>
         <div class="green panel">
@@ -23,9 +25,9 @@
     </div>
     <div id="sidebar">
         <ul>
-            <li>Routes</li>
-            <li>SOS</li>
-            <li onclick="hideSplash()">Information</li>
+            <li><img src="https://itsthe.space/Projects/safe-routes-map/img/routes.svg">Routes</li>
+            <li><img src="https://itsthe.space/Projects/safe-routes-map/img/sos.svg">SOS</li>
+            <li onclick="toggleSplash()"><img src="https://itsthe.space/Projects/safe-routes-map/img/info.svg">Information</li>
         </ul>
     </div>
     <div id="map"></div>

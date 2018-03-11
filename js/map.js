@@ -1,3 +1,5 @@
+var firstClick = 0; // variable just to check if user has already clicked past the splash screen
+
 var myStyle = [
     {
       featureType: "administrative",
@@ -46,6 +48,28 @@ mapTypeId: 'mystyle'
 
 map.mapTypes.set('mystyle', new google.maps.StyledMapType(myStyle, { name: 'My Style' }));
 
-function hideSplash() {
+
+function toggleSplash() {
   document.getElementById('splash').classList.toggle('hidden');
-}
+  if (firstClick == 0) {
+    firstClick = 1;
+    var userloc = new google.maps.Marker({
+    clickable: false,
+    icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+new google.maps.Size(22,22),
+new google.maps.Point(0,18),
+new google.maps.Point(11,11)),
+    shadow: null,
+    zIndex: 999,
+    map: map
+});
+
+if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
+    var user = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+    userloc.setPosition(user);
+}, function(error) {
+    alert("Error: Please report to admin - xxxx");
+    console.log("Error getting the location of user - Are you using https?");
+});
+  }
+};
