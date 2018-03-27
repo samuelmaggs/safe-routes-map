@@ -67,8 +67,7 @@ if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos
     var user = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     userloc.setPosition(user);
 }, function(error) {
-    alert("Error: Please report to admin - xxxx");
-    console.log("Error getting the location of user - Are you using https?");
+    // ...
 });
   }
 };
@@ -95,6 +94,17 @@ var riverCabs = [
 
 var riverMarkers ={};
 function setCabMarkers(map) {
+  
+          var image = {
+          url: 'https://itsthe.space/Projects/safe-routes-map/img/river-marker.png',
+          // define the size of the marker image
+          size: new google.maps.Size(7, 26),
+          // define the orgin of the image
+          origin: new google.maps.Point(0, 0),
+          // the point that will be over the coordinate
+          anchor: new google.maps.Point(0, 26)
+        };
+  
         // Adds markers to the map.
         for (var i = 0; i < riverCabs.length; i++) {
           var cabinet = riverCabs[i];
@@ -102,6 +112,7 @@ function setCabMarkers(map) {
             position: {lat: cabinet[1], lng: cabinet[2]},
             map: map,
             title: cabinet[0],
+            icon: image,
             visible: false
           });
         }
@@ -132,6 +143,17 @@ var aedCabs = [
 
 var aedMarkers = {};
 function setAEDMarkers(map) {
+  
+            var image = {
+          url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
+          // define the size of the marker image.
+          size: new google.maps.Size(15, 15),
+          // define the orgin of the image.
+          origin: new google.maps.Point(0, 0),
+          // the point that will be over the coordinate
+          anchor: new google.maps.Point(7, 7)
+        };
+  
         // Adds markers to the map.
         for (var i = 0; i < aedCabs.length; i++){
           var cabinet = aedCabs[i];
@@ -139,6 +161,7 @@ function setAEDMarkers(map) {
             position: {lat: cabinet[1], lng: cabinet[2]},
             map: map,
             title: cabinet[0],
+            icon: image,
             visible: false
           });
         }
@@ -177,6 +200,86 @@ function toggleSOSMarkers(){
   toggleRiverMarkers();
 }
 
+// routes
+
+function toggleRoutesPanel() {
+  document.getElementById('routes-panel').classList.toggle('hidden');
+}
+
+
+var oldfieldRouteCo = [
+    {lat: 51.378433, lng: -2.376569},
+    {lat: 51.37861, lng: -2.376646},
+    {lat: 51.378803, lng: -2.376588},
+  {lat: 51.379004, lng: -2.376517},
+  {lat: 51.379137, lng: -2.376214},
+  {lat: 51.37937, lng: -2.375879},
+  {lat: 51.379635, lng: -2.375641},
+  {lat: 51.380918, lng: -2.374475},
+  {lat: 51.381236, lng: -2.374203},
+  {lat: 51.381111, lng: -2.373836},
+  {lat: 51.381236, lng: -2.373662},
+  {lat: 51.381332, lng: -2.373539},
+   {lat: 51.381332, lng: -2.373353},
+   {lat: 51.381256, lng: -2.373063},
+   {lat: 51.381252, lng: -2.37267},
+   {lat: 51.381228, lng: -2.372431},
+   {lat: 51.380942, lng: -2.371729},
+   {lat: 51.380902, lng: -2.371484},
+   {lat:  51.38095, lng:-2.371239},
+   {lat: 51.381063, lng: -2.37104},
+   {lat:  51.38134, lng:-2.370286},
+   {lat: 51.381389, lng: -2.370138},
+   {lat: 51.381425, lng: -2.369158},
+   {lat: 51.381361, lng: -2.369106},
+   {lat: 51.381453, lng: -2.368178},
+   {lat:51.381433, lng: -2.36783},
+   {lat: 51.381377, lng: -2.367675},
+   {lat: 51.381421, lng: -2.3662},
+   {lat: 51.381497, lng: -2.365923},
+   {lat: 51.381417, lng: -2.365523},
+   {lat: 51.380942, lng: -2.364224},
+   {lat: 51.381296, lng: -2.363335},
+   {lat: 51.381377, lng: -2.362703},
+   {lat: 51.381503, lng: -2.362507},
+   {lat: 51.381692, lng: -2.36252},
+   {lat: 51.381953, lng: -2.362398},
+   {lat: 51.382226, lng: -2.362449},
+   {lat: 51.382528, lng: -2.360991},
+   {lat: 51.383361, lng: -2.361274},
+   {lat: 51.384897, lng: -2.361983}
+]
+
+var twertonMillRouteCo = []
+var NewbridgeRouteCo = []
+var westonRouteCo = []
+var bathSpaUniRouteCo = []
+var bathUniRouteCo = []
+var southdownRouteCo = []
+var odddownRouteCo = []
+var larkhallRouteCo = []
+
+var oldfieldRoute = new google.maps.Polyline({
+          path: oldfieldRouteCo,
+          geodesic: true,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+          visible: false
+        });
+
+// function that will toggle a route
+function toggleRoute(route) {
+  if(route.getVisible()) {
+      route.setVisible(false);
+    }
+    else {
+      route.setVisible(true);
+    }
+}
+
+
+oldfieldRoute.setMap(map); //shows map on route
 
 // functions that should run at the beginning AFTER the map is init go here
 

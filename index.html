@@ -25,11 +25,27 @@
     </div>
     <div id="sidebar">
         <ul>
-            <li><img src="https://itsthe.space/Projects/safe-routes-map/img/routes.svg">Routes</li>
-            <li onclick="toggleSOSMarkers()"><img src="https://itsthe.space/Projects/safe-routes-map/img/sos.svg">SOS</li>
-            <li onclick="toggleSplash()"><img src="https://itsthe.space/Projects/safe-routes-map/img/info.svg">Information</li>
+          <li onclick="toggleRoutesPanel()"><img src="https://itsthe.space/Projects/safe-routes-map/img/routes.svg">Routes</li>
+          <li onclick="toggleSOSMarkers()"><img src="https://itsthe.space/Projects/safe-routes-map/img/sos.svg">SOS</li>
+          <li onclick="toggleSplash()"><img src="https://itsthe.space/Projects/safe-routes-map/img/info.svg">Information</li>
         </ul>
-    </div>
+      </div>
+      <div id="routes-panel" class="hidden">
+        <p onclick="toggleRoutesPanel()">Back</p>
+        <h2>What area do you live in?</h2>
+        <nav id='filter-group' class='filter-group'>
+            <input onclick="toggleRoute(oldfieldRoute)" type="checkbox" name="oldfield" id="oldfield">
+            <label for="oldfield">Oldfield</label>
+            <input type="checkbox" name="newbridge" id="newbridge">
+            <label for="newbridge">Newbridge</label>
+            <input type="checkbox" name="weston" id="weston">
+            <label for="weston">Weston</label>
+            <input type="checkbox" name="odddown" id="odddown">
+            <label for="odddown">Odd Down</label>
+            <input type="checkbox" name="larkhall" id="larkhall">
+            <label for="larkhall">Larkhall</label>
+        </nav>
+      </div>
     <div id="map"></div>
 </body>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDj5KjOWfCtD4k5rHd-CqnI4SROPoxD4MY&callback=initMap"></script>
