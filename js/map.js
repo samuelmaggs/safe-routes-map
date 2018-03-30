@@ -55,20 +55,20 @@ function toggleSplash() {
     var userloc = new google.maps.Marker({
     clickable: false,
     icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
-new google.maps.Size(22,22),
-new google.maps.Point(0,18),
-new google.maps.Point(11,11)),
+    new google.maps.Size(22,22),
+    new google.maps.Point(0,18),
+    new google.maps.Point(11,11)),
     shadow: null,
     zIndex: 999,
     map: map
-});
+    });
 
-if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
-    var user = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    userloc.setPosition(user);
-}, function(error) {
-    // ...
-});
+    if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
+        var user = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        userloc.setPosition(user);
+    }, function(error) {
+        // ...
+    });
   }
 };
 
@@ -97,9 +97,9 @@ function setCabMarkers(map) {
   
           var image = {
           url: 'https://itsthe.space/Projects/safe-routes-map/img/river-marker.png',
-          // define the size of the marker image
+          // define the size of the marker image.
           size: new google.maps.Size(7, 26),
-          // define the orgin of the image
+          // define the orgin of the image.
           origin: new google.maps.Point(0, 0),
           // the point that will be over the coordinate
           anchor: new google.maps.Point(0, 26)
@@ -144,7 +144,7 @@ var aedCabs = [
 var aedMarkers = {};
 function setAEDMarkers(map) {
   
-            var image = {
+          var image = {
           url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
           // define the size of the marker image.
           size: new google.maps.Size(15, 15),
@@ -190,9 +190,10 @@ function toggleRiverMarkers(){
       }
 }
 
-function setSOSMarkers() {
+function setMarkers() {
   setCabMarkers(map);
   setAEDMarkers(map);
+  setOldfieldMarkers(map);
 }
 
 function toggleSOSMarkers(){
@@ -206,20 +207,19 @@ function toggleRoutesPanel() {
   document.getElementById('routes-panel').classList.toggle('hidden');
 }
 
-
 var oldfieldRouteCo = [
-    {lat: 51.378433, lng: -2.376569},
-    {lat: 51.37861, lng: -2.376646},
-    {lat: 51.378803, lng: -2.376588},
-  {lat: 51.379004, lng: -2.376517},
-  {lat: 51.379137, lng: -2.376214},
-  {lat: 51.37937, lng: -2.375879},
-  {lat: 51.379635, lng: -2.375641},
-  {lat: 51.380918, lng: -2.374475},
-  {lat: 51.381236, lng: -2.374203},
-  {lat: 51.381111, lng: -2.373836},
-  {lat: 51.381236, lng: -2.373662},
-  {lat: 51.381332, lng: -2.373539},
+   {lat: 51.378433, lng: -2.376569},
+   {lat: 51.37861, lng: -2.376646},
+   {lat: 51.378803, lng: -2.376588},
+   {lat: 51.379004, lng: -2.376517},
+   {lat: 51.379137, lng: -2.376214},
+   {lat: 51.37937, lng: -2.375879},
+   {lat: 51.379635, lng: -2.375641},
+   {lat: 51.380918, lng: -2.374475},
+   {lat: 51.381236, lng: -2.374203},
+   {lat: 51.381111, lng: -2.373836},
+   {lat: 51.381236, lng: -2.373662},
+   {lat: 51.381332, lng: -2.373539},
    {lat: 51.381332, lng: -2.373353},
    {lat: 51.381256, lng: -2.373063},
    {lat: 51.381252, lng: -2.37267},
@@ -250,6 +250,37 @@ var oldfieldRouteCo = [
    {lat: 51.384897, lng: -2.361983}
 ]
 
+var oldfieldRoutePOI = [
+  ['Al Falafel', 51.38153, -2.363097],
+  ['Toilets', 51.381701840809846, -2.363094538450241],
+  ['Cash Machine', 51.381381, -2.367846]
+];
+
+var oldfieldMarkers = {};
+function setOldfieldMarkers(map) {
+  
+        var image = {
+          url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
+          // This marker is 20 pixels wide by 32 pixels high.
+          size: new google.maps.Size(15, 15),
+          // The origin for this image is (0, 0).
+          origin: new google.maps.Point(0, 0),
+          // The anchor for this image is the base of the flagpole at (0, 32).
+          anchor: new google.maps.Point(7, 7)
+        };
+  
+        // Adds markers to the map.
+        for (var i = 0; i < oldfieldRoutePOI.length; i++){
+          var POI = oldfieldRoutePOI[i];
+          oldfieldMarkers[POI] = new google.maps.Marker({
+            position: {lat: POI[1], lng: POI[2]},
+            map: map,
+            title: POI[0],
+            visible: false
+          });
+        }
+}
+
 var twertonMillRouteCo = []
 var NewbridgeRouteCo = []
 var westonRouteCo = []
@@ -268,21 +299,28 @@ var oldfieldRoute = new google.maps.Polyline({
           visible: false
         });
 
-// function that will toggle a route
-function toggleRoute(route) {
+// function that will toggle a route - NEED TO ADD FUNCTION FOR WHEN ROUTE IS CLICKED
+function toggleRoute(route, markers) {
   if(route.getVisible()) {
       route.setVisible(false);
     }
     else {
       route.setVisible(true);
     }
+  for (var marker in markers) {
+    if(markers[marker].getVisible()) {
+      markers[marker].setVisible(false);
+    }
+    else {
+      markers[marker].setVisible(true);
+    }
+  }
 }
-
 
 oldfieldRoute.setMap(map); //shows map on route
 
 // functions that should run at the beginning AFTER the map is init go here
 
-setSOSMarkers();
+setMarkers();
 
 // end
