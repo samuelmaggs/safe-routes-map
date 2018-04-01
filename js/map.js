@@ -194,6 +194,10 @@ function setMarkers() {
   setCabMarkers(map);
   setAEDMarkers(map);
   setOldfieldMarkers(map);
+  setNewbridgeMarkers(map);
+  setSouthdownMarkers(map);
+  setOdddownMarkers(map);
+  setWestonMarkers(map);
 }
 
 function toggleSOSMarkers(){
@@ -282,14 +286,349 @@ function setOldfieldMarkers(map) {
 }
 
 var twertonMillRouteCo = []
-var NewbridgeRouteCo = []
-var westonRouteCo = []
+var newbridgeRouteCo = [
+  {lat: 51.38490042955493, lng: -2.3619975785275074},
+  {lat: 51.38464099019319, lng: -2.36341588336208},
+  {lat: 51.384595206627324, lng: -2.363481092771991},
+  {lat: 51.384498552274266, lng: -2.3634647904283668},
+  {lat: 51.383801617489496, lng: -2.3631958015812984},
+  {lat: 51.38320641661073, lng: -2.3671083666384902},
+  {lat: 51.38337429457917, lng: -2.3678439135624956},
+  {lat: 51.38349638725276, lng: -2.368650880103587},
+  {lat: 51.383669351314694, lng: -2.369686079614894},
+  {lat: 51.383903360473425, lng: -2.3710473262112544},
+  {lat: 51.38415771689512, lng: -2.372115130427545},
+  {lat: 51.38430015588736, lng: -2.3728751041794567},
+  {lat: 51.384559597181266, lng: -2.3737146754431535},
+  {lat: 51.38488008144654, lng: -2.3745950025837317},
+  {lat: 51.38509882341316, lng: -2.3751837879842697},
+  {lat: 51.38523617247293, lng: -2.3757380680396523},
+  {lat: 51.38532265129518, lng: -2.3763657086944363},
+  {lat: 51.38551086935027, lng: -2.3777921647008498},
+  {lat: 51.3855617389608, lng: -2.378379049461188},
+  {lat: 51.38551086935027, lng: -2.379014841287784},
+  {lat: 51.38542947785359, lng: -2.3796424819250035},
+  {lat: 51.385287042388825, lng: -2.38013155257039},
+  {lat: 51.384742731402866, lng: -2.3816979997095586},
+  {lat: 51.38450363945833, lng: -2.382423454479323},
+  {lat: 51.384325591451926, lng: -2.3832467233817454},
+  {lat: 51.38419841388429, lng: -2.38378470107574},
+  {lat: 51.384183152551344, lng: -2.3841188993503977},
+  {lat: 51.38445276867162, lng: -2.3861729960116236},
+  {lat: 51.38457485847698, lng: -2.3865405835433364},
+  {lat: 51.384798688921705, lng: -2.387054107704188},
+  {lat: 51.38613054159845, lng: -2.3891657845927625},
+  {lat: 51.38617123674143, lng: -2.3893777152017037},
+  {lat: 51.387214037417806, lng: -2.3919208825082876},
+  {lat: 51.387533282062066, lng: -2.3928526670216854},
+  {lat: 51.38768152812713, lng: -2.393540785020832},
+  {lat: 51.38781764131937, lng: -2.3946793845525747},
+  {lat: 51.388033904054424, lng: -2.395659350260388},
+  {lat: 51.388030071400266, lng: -2.3956822712642065},
+  {lat: 51.388428995451164, lng: -2.3966888265224497}
+]
+
+var newbridgeRoutePOI = [
+  ['Al Falafel', 51.38153, -2.363097],
+  ['Toilets', 51.381701840809846, -2.363094538450241],
+  ['Cash Machine', 51.381381, -2.367846]
+];
+
+var newbridgeMarkers = {};
+function setNewbridgeMarkers(map) {
+  
+        var image = {
+          url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
+          // This marker is 20 pixels wide by 32 pixels high.
+          size: new google.maps.Size(15, 15),
+          // The origin for this image is (0, 0).
+          origin: new google.maps.Point(0, 0),
+          // The anchor for this image is the base of the flagpole at (0, 32).
+          anchor: new google.maps.Point(7, 7)
+        };
+  
+        // Adds markers to the map.
+        for (var i = 0; i < newbridgeRoutePOI.length; i++){
+          var POI = newbridgeRoutePOI[i];
+          newbridgeMarkers[POI] = new google.maps.Marker({
+            position: {lat: POI[1], lng: POI[2]},
+            map: map,
+            title: POI[0],
+            visible: false
+          });
+        }
+}
+
+
+var westonRouteCo = [
+  {lat: 51.381531, lng: -2.360406},
+  {lat: 51.381365, lng: -2.362393},
+  {lat: 51.381391, lng: -2.362741},
+  {lat: 51.382001, lng: -2.363696},
+  {lat: 51.382515, lng: -2.364908},
+  {lat: 51.382736, lng: -2.365584},
+  {lat: 51.383164, lng: -2.367096},
+  {lat: 51.383449, lng: -2.368265},
+  {lat: 51.384065, lng: -2.371720},
+  {lat: 51.384373, lng: -2.373179},
+  {lat: 51.385056, lng: -2.375003},
+  {lat: 51.385256, lng: -2.375766},
+  {lat: 51.385336, lng: -2.376517},
+  {lat: 51.385544, lng: -2.378331},
+  {lat: 51.385525, lng: -2.378882},
+  {lat: 51.385425, lng: -2.379580},
+  {lat: 51.385237, lng: -2.380234},
+  {lat: 51.384903, lng: -2.381146},
+  {lat: 51.384569, lng: -2.382133},
+  {lat: 51.384341, lng: -2.383163},
+  {lat: 51.384180, lng: -2.383914},
+  {lat: 51.384301, lng: -2.385137},
+  {lat: 51.384435, lng: -2.386188},
+  {lat: 51.384555, lng: -2.386660},
+]
+
+var westonRoutePOI = [
+  ['Al Falafel', 51.38153, -2.363097],
+  ['Toilets', 51.381701840809846, -2.363094538450241],
+  ['Cash Machine', 51.381381, -2.367846]
+];
+
+var westonMarkers = {};
+function setWestonMarkers(map) {
+  
+        var image = {
+          url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
+          // This marker is 20 pixels wide by 32 pixels high.
+          size: new google.maps.Size(15, 15),
+          // The origin for this image is (0, 0).
+          origin: new google.maps.Point(0, 0),
+          // The anchor for this image is the base of the flagpole at (0, 32).
+          anchor: new google.maps.Point(7, 7)
+        };
+  
+        // Adds markers to the map.
+        for (var i = 0; i < westonRoutePOI.length; i++){
+          var POI = westonRoutePOI[i];
+          westonMarkers[POI] = new google.maps.Marker({
+            position: {lat: POI[1], lng: POI[2]},
+            map: map,
+            title: POI[0],
+            visible: false
+          });
+        }
+}
+
+
 var bathSpaUniRouteCo = []
 var bathUniRouteCo = []
-var southdownRouteCo = []
-var odddownRouteCo = []
+var southdownRouteCo = [
+  {lat: 51.381548, lng: -2.360407},
+  {lat: 51.381374, lng: -2.362446},
+  {lat: 51.381362, lng: -2.362690},
+  {lat: 51.381289, lng: -2.362902},
+  {lat: 51.381367, lng: -2.363248},
+  {lat: 51.381242, lng: -2.363492},
+  {lat: 51.381009, lng: -2.364361},
+  {lat: 51.381538, lng: -2.365788},
+  {lat: 51.381365, lng: -2.366007},
+  {lat: 51.381452, lng: -2.366297},
+  {lat: 51.381422, lng: -2.367611},
+  {lat: 51.381502, lng: -2.367767},
+  {lat: 51.381422, lng: -2.369153},
+  {lat: 51.381405, lng: -2.370158},
+  {lat: 51.380938, lng: -2.371419},
+  {lat: 51.380945, lng: -2.371553},
+  {lat: 51.380992, lng: -2.371709},
+  {lat: 51.381243, lng: -2.372444},
+  {lat: 51.381287, lng: -2.372685},
+  {lat: 51.381333, lng: -2.372798},
+  {lat: 51.381417, lng: -2.372910},
+  {lat: 51.381370, lng: -2.373028},
+  {lat: 51.381356, lng: -2.373371},
+  {lat: 51.381353, lng: -2.373462},
+  {lat: 51.381166, lng: -2.373580},
+  {lat: 51.381189, lng: -2.373752},
+  {lat: 51.381109, lng: -2.373806},
+  {lat: 51.381238, lng: -2.374382},
+  {lat: 51.381352, lng: -2.374940},
+  {lat: 51.381432, lng: -2.375712},
+  {lat: 51.381593, lng: -2.377182},
+  {lat: 51.381740, lng: -2.378137},
+  {lat: 51.382002, lng: -2.379832},
+  {lat: 51.382142, lng: -2.380991},
+  {lat: 51.382035, lng: -2.381034},
+  {lat: 51.381914, lng: -2.381324},
+  {lat: 51.381446, lng: -2.381560},
+  {lat: 51.381211, lng: -2.381560},
+  {lat: 51.380930, lng: -2.381452},
+  {lat: 51.380528, lng: -2.381442},
+  {lat: 51.379571, lng: -2.381120},
+  {lat: 51.379109, lng: -2.381173},
+  {lat: 51.378747, lng: -2.381688},
+  {lat: 51.378921, lng: -2.383126},
+  {lat: 51.377702, lng: -2.383727},
+  {lat: 51.376910, lng: -2.384188},
+  {lat: 51.376696, lng: -2.384403},
+  {lat: 51.376488, lng: -2.384574},
+  {lat: 51.376213, lng: -2.384875},
+  {lat: 51.375946, lng: -2.385207},
+  {lat: 51.375604, lng: -2.385819},
+  {lat: 51.375460, lng: -2.386065},
+  {lat: 51.375272, lng: -2.386355},
+  {lat: 51.374951, lng: -2.386763},
+  {lat: 51.375131, lng: -2.387203},
+  {lat: 51.374549, lng: -2.387535},
+  {lat: 51.374067, lng: -2.387879},
+  {lat: 51.373805, lng: -2.388136},
+  {lat: 51.373531, lng: -2.388415},
+  {lat: 51.373182, lng: -2.388812},
+  {lat: 51.372675, lng: -2.389329},
+  {lat: 51.372367, lng: -2.389500},
+  {lat: 51.371655, lng: -2.390054},
+  {lat: 51.371293, lng: -2.390279}
+]
+
+var southdownRoutePOI = [
+  ['Al Falafel', 51.38153, -2.363097],
+  ['Toilets', 51.381701840809846, -2.363094538450241],
+  ['Cash Machine', 51.381381, -2.367846]
+];
+
+var southdownMarkers = {};
+function setSouthdownMarkers(map) {
+  
+        var image = {
+          url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
+          // This marker is 20 pixels wide by 32 pixels high.
+          size: new google.maps.Size(15, 15),
+          // The origin for this image is (0, 0).
+          origin: new google.maps.Point(0, 0),
+          // The anchor for this image is the base of the flagpole at (0, 32).
+          anchor: new google.maps.Point(7, 7)
+        };
+  
+        // Adds markers to the map.
+        for (var i = 0; i < southdownRoutePOI.length; i++){
+          var POI = southdownRoutePOI[i];
+          southdownMarkers[POI] = new google.maps.Marker({
+            position: {lat: POI[1], lng: POI[2]},
+            map: map,
+            title: POI[0],
+            visible: false
+          });
+        }
+}
+
+var odddownRouteCo = [
+  {lat: 51.381543, lng: -2.360410},
+  {lat: 51.380718, lng: -2.360088},
+  {lat: 51.379794, lng: -2.359724},
+  {lat: 51.379602, lng: -2.359715},
+  {lat: 51.379374, lng: -2.359720},
+  {lat: 51.379163, lng: -2.359720},
+  {lat: 51.378959, lng: -2.359720},
+  {lat: 51.378775, lng: -2.359709},
+  {lat: 51.378606, lng: -2.359709},
+  {lat: 51.378529, lng: -2.359757},
+  {lat: 51.378469, lng: -2.359822},
+  {lat: 51.378436, lng: -2.359862},
+  {lat: 51.378279, lng: -2.359728},
+  {lat: 51.378198, lng: -2.359728},
+  {lat: 51.378074, lng: -2.359739},
+  {lat: 51.377937, lng: -2.359771},
+  {lat: 51.377863, lng: -2.359836},
+  {lat: 51.377840, lng: -2.359964},
+  {lat: 51.377799, lng: -2.359990},
+  {lat: 51.377705, lng: -2.359941},
+  {lat: 51.377685, lng: -2.359899},
+  {lat: 51.377665, lng: -2.359738},
+  {lat: 51.377635, lng: -2.359625},
+  {lat: 51.377598, lng: -2.359587},
+  {lat: 51.377541, lng: -2.359598},
+  {lat: 51.377484, lng: -2.359614},
+  {lat: 51.377427, lng: -2.359646},
+  {lat: 51.377360, lng: -2.359657},
+  {lat: 51.377303, lng: -2.359668},
+  {lat: 51.377209, lng: -2.359577},
+  {lat: 51.377156, lng: -2.359507},
+  {lat: 51.377102, lng: -2.359426},
+  {lat: 51.377075, lng: -2.359335},
+  {lat: 51.377072, lng: -2.359212},
+  {lat: 51.377075, lng: -2.359148},
+  {lat: 51.376921, lng: -2.359126},
+  {lat: 51.376915, lng: -2.359239},
+  {lat: 51.376921, lng: -2.359394},
+  {lat: 51.376921, lng: -2.359534},
+  {lat: 51.376942, lng: -2.359743},
+  {lat: 51.376965, lng: -2.359990},
+  {lat: 51.376995, lng: -2.360312},
+  {lat: 51.376985, lng: -2.360414},
+  {lat: 51.376948, lng: -2.360478},
+  {lat: 51.376757, lng: -2.360719},
+  {lat: 51.376520, lng: -2.361454},
+  {lat: 51.376446, lng: -2.361548},
+  {lat: 51.376145, lng: -2.362653},
+  {lat: 51.375967, lng: -2.363273},
+  {lat: 51.375900, lng: -2.363638},
+  {lat: 51.375843, lng: -2.364555},
+  {lat: 51.375752, lng: -2.365229},
+  {lat: 51.375618, lng: -2.365578},
+  {lat: 51.375394, lng: -2.365862},
+  {lat: 51.375059, lng: -2.366114},
+  {lat: 51.374557, lng: -2.366339},
+  {lat: 51.374332, lng: -2.366404},
+  {lat: 51.374178, lng: -2.366490},
+  {lat: 51.373874, lng: -2.366458},
+  {lat: 51.373379, lng: -2.366425},
+  {lat: 51.372760, lng: -2.366372},
+  {lat: 51.370328, lng: -2.365862},
+  {lat: 51.369659, lng: -2.365905},
+  {lat: 51.367730, lng: -2.366162},
+  {lat: 51.366256, lng: -2.366248},
+  {lat: 51.365707, lng: -2.366420},
+  {lat: 51.364099, lng: -2.367750},
+  {lat: 51.362732, lng: -2.369682},
+  {lat: 51.361312, lng: -2.371484},
+  {lat: 51.360153, lng: -2.372590},
+  {lat: 51.359885, lng: -2.372976},
+  {lat: 51.358538, lng: -2.375777}
+]
+
+var odddownRoutePOI = [
+  ['Al Falafel', 51.38153, -2.363097],
+  ['Toilets', 51.381701840809846, -2.363094538450241],
+  ['Cash Machine', 51.381381, -2.367846]
+];
+
+var odddownMarkers = {};
+function setOdddownMarkers(map) {
+  
+        var image = {
+          url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
+          // This marker is 20 pixels wide by 32 pixels high.
+          size: new google.maps.Size(15, 15),
+          // The origin for this image is (0, 0).
+          origin: new google.maps.Point(0, 0),
+          // The anchor for this image is the base of the flagpole at (0, 32).
+          anchor: new google.maps.Point(7, 7)
+        };
+  
+        // Adds markers to the map.
+        for (var i = 0; i < odddownRoutePOI.length; i++){
+          var POI = odddownRoutePOI[i];
+          odddownMarkers[POI] = new google.maps.Marker({
+            position: {lat: POI[1], lng: POI[2]},
+            map: map,
+            title: POI[0],
+            visible: false
+          });
+        }
+}
+
 var larkhallRouteCo = []
 
+
+// set all route properties
 var oldfieldRoute = new google.maps.Polyline({
           path: oldfieldRouteCo,
           geodesic: true,
@@ -298,6 +637,42 @@ var oldfieldRoute = new google.maps.Polyline({
           strokeWeight: 2,
           visible: false
         });
+
+var odddownRoute = new google.maps.Polyline({
+  path: odddownRouteCo,
+  geodesic: true,
+  strokeColor: '#FF0000',
+  strokeOpacity: 1.0,
+  strokeWeight: 2,
+  visible: false
+});
+
+var southdownRoute = new google.maps.Polyline({
+  path: southdownRouteCo,
+  geodesic: true,
+  strokeColor: '#FF0000',
+  strokeOpacity: 1.0,
+  strokeWeight: 2,
+  visible: false
+});
+
+var westonRoute = new google.maps.Polyline({
+  path: westonRouteCo,
+  geodesic: true,
+  strokeColor: '#FF0000',
+  strokeOpacity: 1.0,
+  strokeWeight: 2,
+  visible: false
+});
+
+var newbridgeRoute = new google.maps.Polyline({
+  path: newbridgeRouteCo,
+  geodesic: true,
+  strokeColor: '#FF0000',
+  strokeOpacity: 1.0,
+  strokeWeight: 2,
+  visible: false
+});
 
 // function that will toggle a route - NEED TO ADD FUNCTION FOR WHEN ROUTE IS CLICKED
 function toggleRoute(route, markers) {
@@ -318,6 +693,10 @@ function toggleRoute(route, markers) {
 }
 
 oldfieldRoute.setMap(map); //shows map on route
+southdownRoute.setMap(map);
+odddownRoute.setMap(map);
+westonRoute.setMap(map);
+newbridgeRoute.setMap(map);
 
 // functions that should run at the beginning AFTER the map is init go here
 

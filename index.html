@@ -12,7 +12,10 @@
     <div id="splash">
         <div class="info panel">
             <div>
-              <img src="https://itsthe.space/Projects/safe-routes-map/img/gotyaback.jpg">
+              <div>
+              <a href="http://scpbath.org.uk/gotyaback/"><img class="gyb-logo" src="https://itsthe.space/Projects/safe-routes-map/img/gotyaback.jpg"></a>
+              <img class="scp-logo" src="https://itsthe.space/Projects/safe-routes-map/img/student-community-partnership.png">
+              </div>
               <h1>Welcome to Bath Safe Routes Map</h1>
               <p>Lorem ipsum dolor sit amet consectetur adipiscing elit cras molestie montes varius, risus per ultricies cubilia urna aliquet tristique orci ornare sapien fames, ut mus vulputate cursus vestibulum pellentesque justo semper nulla imperdiet.</p>
         <p>At nunc sodales cursus sem habitant est diam aenean, ridiculus ultrices orci duis natoque fringilla mus, pretium cras purus magna parturient pellentesque eget. Proin laoreet malesuada eleifend ut dapibus in cum lacinia fusce, nulla scelerisque ultrices rutrum taciti sagittis mattis nibh, aenean montes nullam hendrerit praesent per primis penatibus.</p>
@@ -34,16 +37,18 @@
         <p onclick="toggleRoutesPanel()">Back</p>
         <h2>What area do you live in?</h2>
         <nav id='filter-group' class='filter-group'>
-            <input onclick="toggleRoute(oldfieldRoute)" type="checkbox" name="oldfield" id="oldfield">
+            <input onclick="toggleRoute(oldfieldRoute, oldfieldMarkers)" type="checkbox" name="oldfield" id="oldfield">
             <label for="oldfield">Oldfield</label>
-            <input type="checkbox" name="newbridge" id="newbridge">
+            <input onclick="toggleRoute(newbridgeRoute, newbridgeMarkers)" type="checkbox" name="newbridge" id="newbridge">
             <label for="newbridge">Newbridge</label>
-            <input type="checkbox" name="weston" id="weston">
+            <input onclick="toggleRoute(westonRoute, westonMarkers)" type="checkbox" name="weston" id="weston">
             <label for="weston">Weston</label>
-            <input type="checkbox" name="odddown" id="odddown">
+            <input onclick="toggleRoute(odddownRoute, odddownMarkers)" type="checkbox" name="odddown" id="odddown">
             <label for="odddown">Odd Down</label>
             <input type="checkbox" name="larkhall" id="larkhall">
             <label for="larkhall">Larkhall</label>
+            <input onclick="toggleRoute(southdownRoute, southdownMarkers)" type="checkbox" name="southdown" id="southdown">
+            <label for="southdown">Southdown</label>
         </nav>
       </div>
     <div id="map"></div>

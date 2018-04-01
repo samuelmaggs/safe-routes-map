@@ -12,6 +12,12 @@ h1 {
   margin-bottom: 10px;
 }
 
+h2 { 
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
 #splash {
   background: #fff;
   position: absolute;
@@ -32,8 +38,16 @@ h1 {
   justify-content: center;
 }
 
-#splash .panel img{
+.gyb-logo{
   max-width: 190px;
+  margin-bottom: 30px;
+  margin-left: -33px;
+}
+
+.scp-logo{
+  max-width:350px;
+  padding-left: 30px;
+  padding-bottom: 35px;
   margin-bottom: 30px;
   margin-left: -33px;
 }
@@ -102,6 +116,34 @@ h1 {
   background: #2f2f2f;
   box-sizing: border-box;
   padding: 10px;
+  color: #fff;
+}
+
+#routes-panel p:first-of-type {
+  padding: 5px;
+  cursor: pointer;
+  display: inline-block;
+  border: 0px solid #686868;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+}
+
+#routes-panel p:first-of-type::before {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  content: '';
+  border: 2px solid #686868;
+  transform: rotate(45deg);
+  border-radius: 14px 0 15px 6px;
+  border-top-width: 0;
+  border-right-width: 0;
 }
 
 .filter-group {
