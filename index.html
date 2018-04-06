@@ -4,6 +4,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Safe Routes Home Map</title>
+    <!-- start of icons -->
+    <link rel="apple-touch-icon" sizes="40x40" href="imgs/icons/apple-icon-40x40.png">
+    <link rel="apple-touch-icon" sizes="58x58" href="imgs/icons/apple-icon-58x58.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="imgs/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="87x87" href="imgs/icons/apple-icon-87x87.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="imgs/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="imgs/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="imgs/icons/apple-icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="imgs/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="imgs/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="imgs/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="imgs/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imgs/icons/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="imgs/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- end of icons -->
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Nunito+Sans:400,700" rel="stylesheet">
@@ -38,7 +56,7 @@
         <h2>What area do you live in?</h2>
         <nav id='filter-group' class='filter-group'>
             <input onclick="toggleRoute(oldfieldRoute, oldfieldMarkers)" type="checkbox" name="oldfield" id="oldfield">
-            <label for="oldfield">Oldfield</label>
+            <label for="oldfield">Oldfield Park</label>
             <input onclick="toggleRoute(newbridgeRoute, newbridgeMarkers)" type="checkbox" name="newbridge" id="newbridge">
             <label for="newbridge">Newbridge</label>
             <input onclick="toggleRoute(westonRoute, westonMarkers)" type="checkbox" name="weston" id="weston">
@@ -55,4 +73,16 @@
 </body>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDj5KjOWfCtD4k5rHd-CqnI4SROPoxD4MY&callback=initMap"></script>
     <script src="js/map.js"></script>
+    <script>
+        if (navigator.serviceWorker.controller) {
+            console.log('[PWA Builder] active service worker found, no need to register')
+        } else {
+            //Register the ServiceWorker
+            navigator.serviceWorker.register('sw.js', {
+                scope: './'
+            }).then(function(reg) {
+                console.log('Service worker has been registered for scope:'+ reg.scope);
+            });
+        }
+    </script>
 </html>

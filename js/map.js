@@ -54,10 +54,10 @@ function toggleSplash() {
     firstClick = 1;
     var userloc = new google.maps.Marker({
     clickable: false,
-    icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
-    new google.maps.Size(22,22),
-    new google.maps.Point(0,18),
-    new google.maps.Point(11,11)),
+    icon: new google.maps.MarkerImage('https://itsthe.space/Projects/safe-routes-map/img/location-marker.png',
+    new google.maps.Size(15,15),
+    new google.maps.Point(0,0),
+    new google.maps.Point(7,7)),
     shadow: null,
     zIndex: 999,
     map: map
@@ -86,10 +86,10 @@ var riverCabs = [
   ['N58', 51.379584, -2.366536],
   ['N56', 51.380471, -2.369111],
   ['N54', 51.381625, -2.369475],
-  ['Cabinet 11', 51.382396, -2.370624],
-  ['Cabinet 12', 51.383384, -2.372144],
-  ['Cabinet 13', 51.383173, -2.372930],
-  ['Cabinet 14', 51.382999, -2.372270],
+  ['N52', 51.382396, -2.370624],
+  ['N50', 51.383384, -2.372144],
+  ['S49', 51.383173, -2.372930],
+  ['S51', 51.382999, -2.372270],
 ];
 
 var riverMarkers ={};
@@ -137,7 +137,13 @@ var aedCabs = [
   ['Oldfield Park Surgery, Junction Road', 51.376328, -2.374225],
   ['Tesco Wellsway', 51.370015, -2.366123],
   ['Rose Cottage, Twerton High Street', 51.380104, -2.395179],
-  ['Tesco Weston High Street', 51.395616, -2.389932]
+  ['Tesco Weston High Street', 51.395616, -2.389932],
+  ['St Marys Church, Darlington Street', 51.384239, -2.350771],
+  ['Co-Op, Moorland Road', 51.377567, -2.377582],
+  ['St Johns Primary School', 51.373292, -2.375324],
+  ['St Barnabas Church, Mount View', 51.369459, -2.394642],
+  ['Tesco Englishcombe Lane', 51.366547, -2.391309],
+  ['Red Lion, Odd Down', 51.358560, -2.376158]
 ];
 
 
@@ -207,6 +213,35 @@ function toggleSOSMarkers(){
 
 // routes
 
+//route marker images
+var atmMarkerImage = {
+  url: 'https://itsthe.space/Projects/safe-routes-map/img/atm-marker.png',
+  size: new google.maps.Size(24, 24),
+  origin: new google.maps.Point(0, 0),
+  anchor: new google.maps.Point(12, 12)
+};
+
+var toiletMarkerImage = {
+  url: 'https://itsthe.space/Projects/safe-routes-map/img/toilet-marker.png',
+  size: new google.maps.Size(24, 24),
+  origin: new google.maps.Point(0, 0),
+  anchor: new google.maps.Point(12, 12)
+};
+
+var foodMarkerImage = {
+  url: 'https://itsthe.space/Projects/safe-routes-map/img/food-marker.png',
+  size: new google.maps.Size(24, 24),
+  origin: new google.maps.Point(0, 0),
+  anchor: new google.maps.Point(12, 12)
+};
+
+var taxiMarkerImage = {
+  url: 'https://itsthe.space/Projects/safe-routes-map/img/taxi-marker.png',
+  size: new google.maps.Size(24, 24),
+  origin: new google.maps.Point(0, 0),
+  anchor: new google.maps.Point(12, 12)
+};
+
 function toggleRoutesPanel() {
   document.getElementById('routes-panel').classList.toggle('hidden');
 }
@@ -254,35 +289,32 @@ var oldfieldRouteCo = [
    {lat: 51.384897, lng: -2.361983}
 ]
 
-var oldfieldRoutePOI = [
-  ['Al Falafel', 51.38153, -2.363097],
-  ['Toilets', 51.381701840809846, -2.363094538450241],
-  ['Cash Machine', 51.381381, -2.367846]
-];
-
 var oldfieldMarkers = {};
 function setOldfieldMarkers(map) {
-  
-        var image = {
-          url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
-          // This marker is 20 pixels wide by 32 pixels high.
-          size: new google.maps.Size(15, 15),
-          // The origin for this image is (0, 0).
-          origin: new google.maps.Point(0, 0),
-          // The anchor for this image is the base of the flagpole at (0, 32).
-          anchor: new google.maps.Point(7, 7)
-        };
-  
-        // Adds markers to the map.
-        for (var i = 0; i < oldfieldRoutePOI.length; i++){
-          var POI = oldfieldRoutePOI[i];
-          oldfieldMarkers[POI] = new google.maps.Marker({
-            position: {lat: POI[1], lng: POI[2]},
-            map: map,
-            title: POI[0],
-            visible: false
-          });
-        }
+  // Adds markers to the map.
+    oldfieldMarkers['marker1'] = new google.maps.Marker({
+      position: {lat: 51.38153, lng: -2.363097},
+      map: map,
+      title: 'Al Falafel',
+      icon: foodMarkerImage,
+      visible: false
+    });
+
+    oldfieldMarkers['marker2'] = new google.maps.Marker({
+      position: {lat: 51.381701840809846, lng: -2.363094538450241},
+      map: map,
+      title: 'Toilets',
+      icon: toiletMarkerImage,
+      visible: false
+    });
+
+    oldfieldMarkers['marker3'] = new google.maps.Marker({
+      position: {lat: 51.381381, lng: -2.367846},
+      map: map,
+      title: 'Cash Machine',
+      icon: atmMarkerImage,
+      visible: false
+    });
 }
 
 var twertonMillRouteCo = []
@@ -594,36 +626,37 @@ var odddownRouteCo = [
   {lat: 51.358538, lng: -2.375777}
 ]
 
-var odddownRoutePOI = [
-  ['Al Falafel', 51.38153, -2.363097],
-  ['Toilets', 51.381701840809846, -2.363094538450241],
-  ['Cash Machine', 51.381381, -2.367846]
-];
-
 var odddownMarkers = {};
 function setOdddownMarkers(map) {
-  
-        var image = {
-          url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
-          // This marker is 20 pixels wide by 32 pixels high.
-          size: new google.maps.Size(15, 15),
-          // The origin for this image is (0, 0).
-          origin: new google.maps.Point(0, 0),
-          // The anchor for this image is the base of the flagpole at (0, 32).
-          anchor: new google.maps.Point(7, 7)
-        };
-  
-        // Adds markers to the map.
-        for (var i = 0; i < odddownRoutePOI.length; i++){
-          var POI = odddownRoutePOI[i];
-          odddownMarkers[POI] = new google.maps.Marker({
-            position: {lat: POI[1], lng: POI[2]},
-            map: map,
-            title: POI[0],
-            visible: false
-          });
-        }
+  // Adds markers to the map.
+    odddownMarkers['marker1'] = new google.maps.Marker({
+      position: {lat: 51.378808, lng: -2.359873},
+      map: map,
+      title: 'McDonalds',
+      icon: foodMarkerImage,
+      visible: false
+    });
+
+    odddownMarkers['marker2'] = new google.maps.Marker({
+      position: {lat: 51.378962, lng: -2.359725},
+      map: map,
+      title: 'Cash Machine',
+      icon: atmMarkerImage,
+      visible: false
+    });
+
+    odddownMarkers['marker3'] = new google.maps.Marker({
+      position: {lat: 51.370087, lng: -2.366095},
+      map: map,
+      title: 'Cash Machine',
+      icon: atmMarkerImage,
+      visible: false
+    });
 }
+
+/* odddownMarkers.addListener('click', function() {
+  infowindow.open(map, marker);
+}); */
 
 var larkhallRouteCo = []
 
