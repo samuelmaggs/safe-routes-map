@@ -1,7 +1,7 @@
 {
  "short_name": "Routes Map",
  "name": "Bath Safe Routes Home Map",
- "start_url": "\/Projects/safe-routes-map/",
+ "start_url": "\/",
  "background_color": "#3FA7D6",
  "theme_color": "#3FA7D6",
  "display": "standalone",

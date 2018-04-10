@@ -35,8 +35,8 @@
               <img class="scp-logo" src="https://itsthe.space/Projects/safe-routes-map/img/student-community-partnership.png">
               </div>
               <h1>Welcome to Bath Safe Routes Map</h1>
-              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit cras molestie montes varius, risus per ultricies cubilia urna aliquet tristique orci ornare sapien fames, ut mus vulputate cursus vestibulum pellentesque justo semper nulla imperdiet.</p>
-        <p>At nunc sodales cursus sem habitant est diam aenean, ridiculus ultrices orci duis natoque fringilla mus, pretium cras purus magna parturient pellentesque eget. Proin laoreet malesuada eleifend ut dapibus in cum lacinia fusce, nulla scelerisque ultrices rutrum taciti sagittis mattis nibh, aenean montes nullam hendrerit praesent per primis penatibus.</p>
+              <p>Whether you're a newcomer to Bath or an expert on Baths streets this map aims to help you get home safely. Perhaps you go out partying? Or maybe you just stay indoors? Either way, the map shows the best way to walk home. It won't show you a path to your house though! The paths are guidelines and with time you'll probably figure out your own path and be familiar with the safe routes. The map will show you key stops along your route. Whether that be a toilet (to avoid the bushes...), a food stop or a cash machine to get some money for a Taxi.</p>
+              <p>Finally for our inflight annoucement. In the unlikely event of an emergency the locations of River Safety Cabinets and defibrillators are shown when needed. Just click SOS.</p>
               <div class="btn" onclick="toggleSplash()">Launch Map!</div>
             </div>
         </div>
@@ -67,6 +67,10 @@
             <label for="larkhall">Larkhall</label>
             <input onclick="toggleRoute(southdownRoute, southdownMarkers)" type="checkbox" name="southdown" id="southdown">
             <label for="southdown">Southdown</label>
+            <input onclick="toggleRoute(bathuniRoute, bathuniMarkers)" type="checkbox" name="bathuni" id="bathuni">
+            <label for="bathuni">University Of Bath</label>
+            <input onclick="toggleRoute(viaTaxiRoute, viaTaxiMarkers)" type="checkbox" name="bathspa" id="bathspa">
+            <label for="bathspa">Bath Spa University</label>
         </nav>
       </div>
     <div id="map"></div>

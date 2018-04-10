@@ -204,6 +204,8 @@ function setMarkers() {
   setSouthdownMarkers(map);
   setOdddownMarkers(map);
   setWestonMarkers(map);
+  setViaTaxiMarkers(map)
+  setBathUniMarkers(map)
 }
 
 function toggleSOSMarkers(){
@@ -360,37 +362,30 @@ var newbridgeRouteCo = [
   {lat: 51.388428995451164, lng: -2.3966888265224497}
 ]
 
-var newbridgeRoutePOI = [
-  ['Al Falafel', 51.38153, -2.363097],
-  ['Toilets', 51.381701840809846, -2.363094538450241],
-  ['Cash Machine', 51.381381, -2.367846]
-];
-
 var newbridgeMarkers = {};
 function setNewbridgeMarkers(map) {
-  
-        var image = {
-          url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
-          // This marker is 20 pixels wide by 32 pixels high.
-          size: new google.maps.Size(15, 15),
-          // The origin for this image is (0, 0).
-          origin: new google.maps.Point(0, 0),
-          // The anchor for this image is the base of the flagpole at (0, 32).
-          anchor: new google.maps.Point(7, 7)
-        };
-  
-        // Adds markers to the map.
-        for (var i = 0; i < newbridgeRoutePOI.length; i++){
-          var POI = newbridgeRoutePOI[i];
-          newbridgeMarkers[POI] = new google.maps.Marker({
-            position: {lat: POI[1], lng: POI[2]},
-            map: map,
-            title: POI[0],
-            visible: false
-          });
-        }
+  newbridgeMarkers['marker1'] = new google.maps.Marker({
+    position: {lat: 51.383647, lng: -2.370173},
+    map: map,
+    title: 'Mr Ds',
+    icon: foodMarkerImage,
+    visible: false
+  });
+  newbridgeMarkers['marker2'] = new google.maps.Marker({
+    position: {lat: 51.385307, lng: -2.380284},
+    map: map,
+    title: 'Pizza La Vita',
+    icon: foodMarkerImage,
+    visible: false
+  });
+  newbridgeMarkers['marker3'] = new google.maps.Marker({
+    position: {lat: 51.384880, lng: -2.381963},
+    map: map,
+    title: 'Cash Machine',
+    icon: atmMarkerImage,
+    visible: false
+  });
 }
-
 
 var westonRouteCo = [
   {lat: 51.381531, lng: -2.360406},
@@ -419,40 +414,160 @@ var westonRouteCo = [
   {lat: 51.384555, lng: -2.386660},
 ]
 
-var westonRoutePOI = [
-  ['Al Falafel', 51.38153, -2.363097],
-  ['Toilets', 51.381701840809846, -2.363094538450241],
-  ['Cash Machine', 51.381381, -2.367846]
-];
-
 var westonMarkers = {};
 function setWestonMarkers(map) {
-  
-        var image = {
-          url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
-          // This marker is 20 pixels wide by 32 pixels high.
-          size: new google.maps.Size(15, 15),
-          // The origin for this image is (0, 0).
-          origin: new google.maps.Point(0, 0),
-          // The anchor for this image is the base of the flagpole at (0, 32).
-          anchor: new google.maps.Point(7, 7)
-        };
-  
-        // Adds markers to the map.
-        for (var i = 0; i < westonRoutePOI.length; i++){
-          var POI = westonRoutePOI[i];
-          westonMarkers[POI] = new google.maps.Marker({
-            position: {lat: POI[1], lng: POI[2]},
-            map: map,
-            title: POI[0],
-            visible: false
-          });
-        }
+  westonMarkers['marker1'] = new google.maps.Marker({
+    position: {lat: 51.38153, lng: -2.363097},
+    map: map,
+    title: 'Alfalafel',
+    icon: foodMarkerImage,
+    visible: false
+  });
+  westonMarkers['marker2'] = new google.maps.Marker({
+    position: {lat: 51.381701840809846, lng: -2.363094538450241},
+    map: map,
+    title: 'Toilets',
+    icon: toiletMarkerImage,
+    visible: false
+  });
+  westonMarkers['marker3'] = new google.maps.Marker({
+    position: {lat: 51.383647, lng: -2.370173},
+    map: map,
+    title: 'Mr Ds',
+    icon: foodMarkerImage,
+    visible: false
+  });
+  westonMarkers['marker4'] = new google.maps.Marker({
+    position: {lat: 51.385307, lng: -2.380284},
+    map: map,
+    title: 'Pizza La Vita',
+    icon: foodMarkerImage,
+    visible: false
+  });
+  westonMarkers['marker5'] = new google.maps.Marker({
+    position: {lat: 51.384880, lng: -2.381963},
+    map: map,
+    title: 'Cash Machine',
+    icon: atmMarkerImage,
+    visible: false
+  });
 }
 
+var viaTaxiRouteCo = [
+  {lat: 51.381529, lng: -2.360381},
+  {lat: 51.381757, lng: -2.358986},
+  {lat: 51.381677, lng: -2.358310},
+  {lat: 51.381536, lng: -2.358160},
+  {lat: 51.381536, lng: -2.357548},
+  {lat: 51.380806, lng: -2.357182},
+  {lat: 51.379868, lng: -2.357032}
+]
 
-var bathSpaUniRouteCo = []
-var bathUniRouteCo = []
+var viaTaxiMarkers = {};
+function setViaTaxiMarkers(map) {
+  viaTaxiMarkers['marker1'] = new google.maps.Marker({
+    position: {lat: 51.381587, lng: -2.358281},
+    map: map,
+    title: 'Taxi Rank',
+    icon: taxiMarkerImage,
+    visible: false
+  });
+  viaTaxiMarkers['marker2'] = new google.maps.Marker({
+    position: {lat: 51.379863, lng: -2.356917},
+    map: map,
+    title: 'Abbey Taxis',
+    icon: taxiMarkerImage,
+    visible: false
+  });
+}
+
+var bathuniRouteCo = [
+{lat: 51.381529, lng: -2.360405},
+{lat: 51.381763, lng: -2.358956},
+{lat: 51.382553, lng: -2.359182},
+{lat: 51.382653, lng: -2.359160},
+{lat: 51.382707, lng: -2.359053},
+{lat: 51.382874, lng: -2.358366},
+{lat: 51.382924, lng: -2.358185},
+{lat: 51.382978, lng: -2.358035},
+{lat: 51.383179, lng: -2.357488},
+{lat: 51.383292, lng: -2.357166},
+{lat: 51.383600, lng: -2.356394},
+{lat: 51.384879, lng: -2.353078},
+{lat: 51.385395, lng: -2.351808},
+{lat: 51.385432, lng: -2.351679},
+{lat: 51.385392, lng: -2.351604},
+{lat: 51.385318, lng: -2.351550},
+{lat: 51.385071, lng: -2.351454},
+{lat: 51.384502, lng: -2.351454},
+{lat: 51.384194, lng: -2.351400},
+{lat: 51.383698, lng: -2.350767},
+{lat: 51.383044, lng: -2.349782},
+{lat: 51.382930, lng: -2.349557},
+{lat: 51.382849, lng: -2.349342},
+{lat: 51.382769, lng: -2.348870},
+{lat: 51.382702, lng: -2.348527},
+{lat: 51.382635, lng: -2.348226},
+{lat: 51.382427, lng: -2.347540},
+{lat: 51.382307, lng: -2.347268},
+{lat: 51.382140, lng: -2.346978},
+{lat: 51.381865, lng: -2.346581},
+{lat: 51.381590, lng: -2.346238},
+{lat: 51.381323, lng: -2.345948},
+{lat: 51.381015, lng: -2.345659},
+{lat: 51.380800, lng: -2.345455},
+{lat: 51.380626, lng: -2.345262},
+{lat: 51.380452, lng: -2.344908},
+{lat: 51.379903, lng: -2.343545},
+{lat: 51.379809, lng: -2.343073},
+{lat: 51.379669, lng: -2.342472},
+{lat: 51.379535, lng: -2.341946},
+{lat: 51.379407, lng: -2.341625},
+{lat: 51.379116, lng: -2.341066},
+{lat: 51.378855, lng: -2.340605},
+{lat: 51.378647, lng: -2.340187},
+{lat: 51.378440, lng: -2.339833},
+{lat: 51.378245, lng: -2.339468},
+{lat: 51.378091, lng: -2.339167},
+{lat: 51.377998, lng: -2.338889},
+{lat: 51.377911, lng: -2.338545},
+{lat: 51.377742, lng: -2.337094},
+{lat: 51.377715, lng: -2.336171},
+{lat: 51.377669, lng: -2.335409},
+{lat: 51.377602, lng: -2.334819},
+{lat: 51.377521, lng: -2.334293},
+{lat: 51.377263, lng: -2.333419},
+{lat: 51.377069, lng: -2.332700},
+{lat: 51.376901, lng: -2.332228},
+{lat: 51.376781, lng: -2.331907},
+{lat: 51.376687, lng: -2.331692},
+{lat: 51.376449, lng: -2.331380},
+{lat: 51.376542, lng: -2.331230},
+{lat: 51.376643, lng: -2.331219},
+{lat: 51.376797, lng: -2.331090},
+{lat: 51.376998, lng: -2.330919},
+{lat: 51.377232, lng: -2.330715},
+{lat: 51.378146, lng: -2.329863}
+]
+
+var bathuniMarkers = {};
+function setBathUniMarkers(map) {
+  viaTaxiMarkers['marker1'] = new google.maps.Marker({
+    position: {lat: 51.381587, lng: -2.358281},
+    map: map,
+    title: 'Taxi Rank',
+    icon: taxiMarkerImage,
+    visible: false
+  });
+  viaTaxiMarkers['marker2'] = new google.maps.Marker({
+    position: {lat: 51.379863, lng: -2.356917},
+    map: map,
+    title: 'Abbey Taxis',
+    icon: taxiMarkerImage,
+    visible: false
+  });
+}
+
 var southdownRouteCo = [
   {lat: 51.381548, lng: -2.360407},
   {lat: 51.381374, lng: -2.362446},
@@ -520,35 +635,29 @@ var southdownRouteCo = [
   {lat: 51.371293, lng: -2.390279}
 ]
 
-var southdownRoutePOI = [
-  ['Al Falafel', 51.38153, -2.363097],
-  ['Toilets', 51.381701840809846, -2.363094538450241],
-  ['Cash Machine', 51.381381, -2.367846]
-];
-
 var southdownMarkers = {};
 function setSouthdownMarkers(map) {
-  
-        var image = {
-          url: 'https://itsthe.space/Projects/safe-routes-map/img/defib-marker.png',
-          // This marker is 20 pixels wide by 32 pixels high.
-          size: new google.maps.Size(15, 15),
-          // The origin for this image is (0, 0).
-          origin: new google.maps.Point(0, 0),
-          // The anchor for this image is the base of the flagpole at (0, 32).
-          anchor: new google.maps.Point(7, 7)
-        };
-  
-        // Adds markers to the map.
-        for (var i = 0; i < southdownRoutePOI.length; i++){
-          var POI = southdownRoutePOI[i];
-          southdownMarkers[POI] = new google.maps.Marker({
-            position: {lat: POI[1], lng: POI[2]},
-            map: map,
-            title: POI[0],
-            visible: false
-          });
-        }
+  southdownMarkers['marker1'] = new google.maps.Marker({
+    position: {lat: 51.38153, lng: -2.363097},
+    map: map,
+    title: 'Alfalafel',
+    icon: foodMarkerImage,
+    visible: false
+  });
+  southdownMarkers['marker2'] = new google.maps.Marker({
+    position: {lat: 51.381701840809846, lng: -2.363094538450241},
+    map: map,
+    title: 'Toilets',
+    icon: toiletMarkerImage,
+    visible: false
+  });
+  southdownMarkers['marker3'] = new google.maps.Marker({
+    position: {lat: 51.381381, lng: -2.367846},
+    map: map,
+    title: 'Cash Machine',
+    icon: atmMarkerImage,
+    visible: false
+  });
 }
 
 var odddownRouteCo = [
@@ -663,13 +772,13 @@ var larkhallRouteCo = []
 
 // set all route properties
 var oldfieldRoute = new google.maps.Polyline({
-          path: oldfieldRouteCo,
-          geodesic: true,
-          strokeColor: '#FF0000',
-          strokeOpacity: 1.0,
-          strokeWeight: 2,
-          visible: false
-        });
+  path: oldfieldRouteCo,
+  geodesic: true,
+  strokeColor: '#FF0000',
+  strokeOpacity: 1.0,
+  strokeWeight: 2,
+  visible: false
+  });
 
 var odddownRoute = new google.maps.Polyline({
   path: odddownRouteCo,
@@ -707,6 +816,24 @@ var newbridgeRoute = new google.maps.Polyline({
   visible: false
 });
 
+var viaTaxiRoute = new google.maps.Polyline({
+  path: viaTaxiRouteCo,
+  geodesic: true,
+  strokeColor: '#FF0000',
+  strokeOpacity: 1.0,
+  strokeWeight: 2,
+  visible: false
+});
+
+var bathuniRoute = new google.maps.Polyline({
+  path: bathuniRouteCo,
+  geodesic: true,
+  strokeColor: '#FF0000',
+  strokeOpacity: 1.0,
+  strokeWeight: 2,
+  visible: false
+});
+
 // function that will toggle a route - NEED TO ADD FUNCTION FOR WHEN ROUTE IS CLICKED
 function toggleRoute(route, markers) {
   if(route.getVisible()) {
@@ -730,6 +857,8 @@ southdownRoute.setMap(map);
 odddownRoute.setMap(map);
 westonRoute.setMap(map);
 newbridgeRoute.setMap(map);
+viaTaxiRoute.setMap(map);
+bathuniRoute.setMap(map);
 
 // functions that should run at the beginning AFTER the map is init go here
 
