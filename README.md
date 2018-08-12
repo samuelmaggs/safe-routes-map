@@ -38,4 +38,4 @@ Your patches, updates and new features are welcome. Here's our suggested workflo
 
 ## Copyright and attribution
 
-Copyright (c) 2018 Samuel Maggs. Released under the [GNU GPLv3](https://github.com/samuelmaggs/safe-routes-map/blob/master/LICENSE).
+Copyright (c) 2018 Samuel Maggs. Released under the [GNU GPLv3](https://github.com/samuelmaggs/safe-routes-map/blob/master/LICENSE.md).
